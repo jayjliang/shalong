@@ -1,0 +1,307 @@
+//跨浏览器圆角
+@mixin rounded-corners($number) {
+	-webkit-border-radius: $number;
+    -moz-border-radius: $number;
+    border-radius: $number;
+}
+//带颜色边框
+@mixin grey_border($side,$color) {
+	border-#{$side}-color:$color;
+	border-#{$side}-style:solid;
+	border-#{$side}-width:1px;
+}
+//定义一些常用颜色
+$header_color:#29b6f6;
+$my-white:#FFFFFF;
+$my-grey:rgb(238,238,238);
+$grey-back:#EEEEEE;
+$my_yellow:#FF9800;
+
+
+.font-light {
+	color:#9c9c9c;
+}
+.font-black {
+	font-family:微软雅黑,sans-serif;
+}
+.error_message {
+		color:$my_yellow;
+	}
+//tab标签
+.tab-nav {
+	top:0px !important;
+	background-color:$header_color !important;
+	border-color:$header_color !important;
+	color:$my-white;
+	a {
+		border-color:$my-white !important;
+	}
+}
+
+.ion-navicon {
+	color:$my-white !important;
+}
+
+
+//兼职页面
+.background {
+	background-color:$grey-back;
+	.all_content {
+		top:50px !important;
+	}
+}
+
+.jianzhi_item {
+	background-color:$my-white;
+	margin:10px;
+	margin-top:15px;
+	padding:10px 10px 10px 15px;
+	font-size:14px;
+	@include rounded-corners(10px);
+	
+	.jianzhi_header {
+		margin-bottom:10px;
+		color:#FF9800;
+		.myitem {
+			line-height:25px;
+			font-size: 18px;
+		}
+		.detail {
+			margin-left:85px;
+			// color:#FF9933;
+		} 
+		.detail_display {
+			margin-left:20px;
+		}
+	}
+
+	.content {
+		.icon {
+			color: #a2a2a2;
+		}
+		.jianzhi_location {
+			margin-left:15px;
+		}
+	}
+	.baoming_button {
+		min-height:25px;
+		height:25px;
+		min-width:65px;
+		width:70px;
+		line-height:8px;
+		margin-left:75%;
+		font-size:14px;
+		background-color:$header_color;
+		border-color:#29b6f6;
+		color:$my-white;
+		@include rounded-corners(5px);	
+	}
+	font-family:微软雅黑;
+	
+}
+
+//兼职页面弹窗
+
+.modal {
+	background-color:$my-grey;
+	font-family:微软雅黑;
+	.bar-header {
+		background-color:$header_color;
+		color: $my-white;
+	}
+	.record_content {
+		@include rounded-corners(10px);
+		background-color:$my-white;
+		margin:10px;
+		padding:10px 10px 10px 15px;
+		font-size:14px;
+		.item_header {
+			@include grey_border('bottom',$my-grey);
+			.item_title {
+				color:$my_yellow;
+				margin-bottom:10px;
+			}
+			.myitem {
+				line-height:25px;
+				font-size: 18px;
+			}
+			.detail {
+				margin-left:85px;
+				// color:#FF9933;
+			} 
+			.detail_display {
+				margin-left:20px;
+			}
+			.jianzhi_location {
+				margin-left: 20px;
+			}
+		}
+		.item_record_list {
+			.record_item {
+				margin-top: 10px;
+				height:60px;
+				@include grey_border('bottom',$my-grey);
+				button {
+					@include rounded-corners(5px);
+					background-color:$header_color;
+					height:20px;
+					min-height: 20px;
+					width: 25px;
+					line-height: 10px;
+					font-size: 10px;
+				}
+			}
+		}
+		.comment {
+			margin-top: -10px;
+			margin-left: 5px;
+		}
+		.empty_message {
+			color: $my_yellow;
+		}
+	}
+}
+
+
+
+
+//新建兼职页面
+.info_header {
+	background-color:$header_color; 
+	.title,.ion-chevron-left {
+		color:$my-white;
+		
+	}
+	
+}
+.info_background {
+	background-color:$my-grey;
+	top:50px !important;
+}
+
+.info_basic_info {
+	.info_item {
+		margin:10px;
+		padding:10px 10px 10px 15px;
+		@include rounded-corners(10px);
+		background-color:$my-white;
+		.header {
+			padding:10px;
+			@include grey_border('bottom',$my-grey);
+			.pull_down_icon {
+				font-size: 15px;
+				margin-left: 60%;
+			}
+			.icon_with_text {
+				margin-left: 66%;
+			}
+			.star {
+				color:red;
+			}
+		}
+		.content {
+			margin-top: 10px;
+			.my-item {
+				border:0px;
+				font-size:14px;
+			}
+			.my-input {
+				margin-left: 10px;
+				padding-left:10px;
+				@include grey_border('bottom',$my-grey);
+			}
+			.my-textarea {
+				border-color:$my-grey;
+				border-style:solid;
+				border-width:1px;
+				margin-top: 10px;
+				height:80px;
+			}
+		}
+	}
+	.error_message {
+		padding-left: 20px;
+		line-height: 30px;
+	}
+	.info_button {
+		@include rounded-corners(10px);
+		margin-left: 10px;
+		min-height:40px;
+		margin-top: 10px;
+		height:40px;
+		width: 95%;
+		
+	}
+}
+
+//登录页面
+.login{
+	
+
+	background-color:$grey-back;
+	.my_form {
+		margin: 10px;
+		padding:10px 10px 10px 15px;
+		background-color:$my-white;
+		@include rounded-corners(5px);
+		.item {
+			border:0px;
+			input {
+				padding-left:10px;
+				margin-left: 15px;
+				margin-top: 10px;
+				border-width:1px;
+				border-color:$my-grey;
+				border-style:solid;
+				@include rounded-corners(5px);
+			}
+		}
+	}
+	.login_bar {
+		background-color:$header_color;
+	}
+	.ion-chevron-left {
+		color: $my-white;
+	}
+	.title {
+		color: $my-white;
+	}
+	.button-login {
+		background-color:$header_color;
+		color: $my-white;
+		@include rounded-corners(5px);
+	}
+}
+
+
+.enroll_popup {
+	.popup{
+		@include rounded-corners(10px);
+		background-color:$my-white;
+	}
+	.popup-head h3{
+		text-align:left;
+		color:$header_color;
+		font-size: 18px;
+
+	}
+	.popup-body p{
+		color: black;
+		font-weight: 400;
+
+	}
+	.popup-buttons{
+		@include grey_border('top',$my-grey);
+		padding:0px;
+		min-height:50px;
+		height:50px;
+		button{
+			color:black;
+			font-size: 18px;
+		}
+		button:first-child{
+			box-shadow:none;
+			@include grey_border('right',$my-grey);
+		}
+	}
+}

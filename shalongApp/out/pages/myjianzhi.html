@@ -1,0 +1,48 @@
+<ion-view class="mybackground myjianzhi">
+	<div class="bar bar-header my_bar">
+		      <a class="button  button-clear ion-chevron-left" ui-sref="index.jianzhi" style="font-size:27px;"></a>
+		      <h1 class="title">我的兼职</h1>
+	</div>
+	<ion-content class="all_content has-header">
+		<ion-refresher pulling-text="下拉刷新" pulling-icon="ion-ios-refresh-empty" on-refresh="doRefresh()"></ion-refresher>
+		<!-- <div class="list"> -->
+			<div class="jianzhi_item font-black" ng-repeat="item in jianzhi_info" >
+				<div class="jianzhi_header">
+					<label >
+						<span class="myitem">{{item.name}}</span>
+						<label class="detail">
+							<span>￥ {{item.price}}元/天</span>
+							<i class="icon ion-ios-body detail_display"></i>
+							<span >{{item.wanted_number}}人</span>
+						</label>
+					</label>
+				</div>
+				<div>
+					<p class="font-light">详情：</p>
+					<p>{{item.detail}}</p>
+				</div>
+				<div class="content">
+					<label >
+						<i class="icon ion-clock"></i>
+						<label class="font-light">{{item.time}}</label>
+						<i class="icon ion-ios-paperplane jianzhi_location"></i>
+						<label class="font-light">{{item.location}}</label>
+					</label>
+				</div>
+				<div>
+					<button class="button  baoming_button" ng-click="enroll(item)" ng-show="item.state">{{item.mystate}}</button>
+					<button class="button  baoming_button" disabled="true" ng-show="!item.state">{{item.mystate}}</button>
+				</div>
+			</div>
+		<!-- </div> -->
+		<div class="no_content_show jianzhi_item" ng-if="no_content">
+			<p>你还没有报名任何兼职呢</p>
+		</div>
+		<ion-infinite-scroll
+		    on-infinite="addItems()"
+		    ng-if="scrollState"
+		    immediate-check="false"
+		   >
+		 </ion-infinite-scroll>
+	</ion-content>
+</ion-view>

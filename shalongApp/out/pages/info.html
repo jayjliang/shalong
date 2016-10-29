@@ -1,0 +1,85 @@
+<ion-view>
+	<div class="bar bar-header info_header">
+	      <a class="button  button-clear ion-chevron-left" ui-sref="index.jianzhi" style="font-size:27px;"></a>
+	      <h1 class="title">我的资料</h1>
+	</div>
+	<ion-content class="has-header info_background">
+		<div class="info_basic_info">
+			<div class="info_item">
+				<div class="header" ng-click="info_toggle('one')">
+					<label >
+						<span>1.基本信息</span>
+						<span class="star">*</span>
+						<i class="icon pull_down_icon icon_with_text" ng-class="{true:'ion-chevron-up',false:'ion-chevron-down'}[show_group['one']]"></i>
+					</label>
+				</div>
+				<div class="content" ng-show="show_group['one']">
+					<label class="item item-input my-item row">
+						<span class="col col-20">姓名:</span>
+					    <input type="text" class="my-input" ng-model="info.name">
+					</label>
+					<label class="item item-input my-item row">
+						<span class="col col-20">院系:</span>
+					    <input type="text" class="my-input" ng-model="info.course">
+					</label>
+					<label class="item item-input my-item row">
+						<span class="col col-20">一卡通号:</span>
+					    <input type="text" class="my-input"  ng-model="info.cardnum">
+					</label>
+					<label class="item item-input my-item row">
+						<span class="col col-20">电话:</span>
+					    <input type="text" class="my-input row"  disabled="true" ng-model="info.phone">
+					</label>
+					<label class="item item-input my-item row">
+						<span class="col col-20">QQ:</span>
+					    <input type="text" class="my-input"  ng-model="info.qq">
+					</label>
+				</div>
+			</div>
+			<div class="info_item">
+				<div class="header" ng-click="info_toggle('two')">
+					<label >
+						<span>2.兼职相关信息</span>
+						<i class="icon pull_down_icon" ng-class="{true:'ion-chevron-up',false:'ion-chevron-down'}[show_group['two']]"></i>
+					</label>
+				</div>
+				<div class="content" ng-show="show_group['two']">
+					<label class="item item-input my-item row">
+						<span class="col col-20">兼职意向:</span>
+					    <input type="text" class="my-input" placeholder="请输入兼职意向(如：服务员)"   ng-model="info.intention">
+					</label>
+					<label class="item item-input my-item row">
+						<span class="col col-20">兼职经验:</span>
+					    
+					</label>
+					<label class="item item-input my-item row">
+						<textarea type="text" class="my-input my-textarea" placeholder="简要介绍参加过的兼职经验"  ng-model="info.experience"></textarea>
+					</label>
+				</div>
+			</div>
+			<!-- <div class="info_item">
+				<div class="header">
+					<label ng-click="info_toggle('three')">
+						<span>3.家教相关信息</span>
+						<i class="icon pull_down_icon" ng-class="{true:'ion-chevron-up',false:'ion-chevron-down'}[show_group['three']]"></i>
+					</label>
+				</div>
+				<div class="content" ng-show="show_group['three']">
+					<label class="item item-input my-item row">
+						<span class="col col-20">擅长科目:</span>
+					    <input type="text" class="my-input row">
+					</label>
+					<label class="item item-input my-item row">
+						<span class="col col-20">辅导年级:</span>
+					    <input type="text" class="my-input">
+					</label>
+				</div>
+			</div>
+			<div> -->
+				<span ng-show="error_message" class="error_message message">{{error_message}}</span>
+				<button class="info_button button button-calm" ng-click="update()">完成</button>
+			</div>
+			
+		</div>
+	</ion-content>
+</ion-view>

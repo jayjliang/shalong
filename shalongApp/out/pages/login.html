@@ -1,0 +1,25 @@
+<ion-view class="login">
+	<div class="bar bar-header login_bar">
+	      <a class="button  button-clear ion-chevron-left" ui-sref="index.home" style="font-size:27px;"></a>
+	      <h1 class="title">登录</h1>
+	</div>
+	<ion-content class="has-header">
+
+		<div class="my_form">
+			<label class="item item-input my-item row">
+				<span class="col col-20">手机号码:</span>
+				<input type="text" class="my-input" placeholder="请输入手机号" ng-model="formData.login_username">
+			</label>
+			<label class="item item-input my-item row">
+				<span class="col col-20">密码:</span>
+				<input type="password" class="my-input" placeholder="请输入密码" ng-model="formData.login_password">
+			</label>
+			<span ng-show="error_message" class="error_message"><br>{{error_message}}</span>
+			<button class="button button-full button-login" ng-click="login()">登录</button>
+			<div class="font-light">
+				<p>你还没未登录,登陆后才可报名兼职和家教团队喔！</p>
+				<p>没有账号？<a ui-sref="register" style="color:#29b6f6">立即注册</a></p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,46 @@
+<ion-side-menus >
+    <ion-pane ion-side-menu-content>
+        
+        <ion-nav-view name="home" animation="slide-left-right">
+
+        </ion-nav-view>
+    </ion-pane>
+    <ion-side-menu width="250">
+        <ion-content class="side_content">
+            <div class="list">
+                <div class="item item-avatar" ng-click="get_picture_click()">
+                    <h2 class="username">{{info.username}}</h2>
+                    <p></p>
+                    <!-- <p>Back off, man. I'm a scientist.</p> -->
+                </div>
+                <div class="menu_item">
+                  <a class="item item-icon-left has_border" ui-sref="myshalong">
+                      <i class="icon ion-ios-person-outline"></i>
+                      我的沙龙
+                  </a>
+                  <a class="item item-icon-left has_border" href="#">
+                      <i class="icon ion-ios-chatboxes-outline"></i>
+                      服务咨询
+                  </a>
+                  <a class="item item-icon-left has_border" ng-click="logout()" ng-if="info.state">
+                      <i class="icon ion-ios-paperplane-outline"></i>
+                      退出登录
+                  </a>
+                </div>
+            </div>
+        </ion-content>
+        </ion-side-menu>
+</ion-side-menus>
+
+<!-- <ion-tabs class="tabs-top mytab">
+    <div>
+        <ion-tab title="校园兼职" class="test" href="#/jianzhi">
+          <ion-nav-view name="jianzhi"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="家教团队"  href="#/jiajiao">
+          <ion-nav-view name="jiajiao"></ion-nav-view>
+        </ion-tab>
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </div>
+</ion-tabs>
+ -->

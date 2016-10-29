@@ -1,0 +1,88 @@
+<ion-view class="background">
+	<ion-content class="all_content">
+		<ion-refresher pulling-text="下拉刷新" pulling-icon="ion-ios-refresh-empty" on-refresh="doRefresh()"></ion-refresher>
+		<!-- <div class="list"> -->
+			<div class="jianzhi_item font-black" ng-repeat="item in jianzhi_info">
+				<div ng-click="detail(item)">
+					<div class="jianzhi_header">
+						<label >
+							<span class="myitem">{{item.topic}}</span>
+							<label class="detail">
+								<i class="icon ion-ios-body detail_display"></i>
+								<span >{{item.reg_number}}/{{item.wanted_number}}人</span>
+							</label>
+						</label>
+					</div>
+					<div>
+						<p class="font-light">详情：</p>
+						<p>{{item.detail}}</p>
+					</div>
+					<div class="content">
+						<label >
+							<i class="icon ion-clock"></i>
+							<label class="font-light">{{item.time}}</label>
+							<i class="icon ion-ios-paperplane jianzhi_location"></i>
+							<label class="font-light">{{item.location}}</label>
+						</label>
+					</div>
+				</div>
+				<div>
+					<button class="button  baoming_button" ng-click="down(item)" ng-disabled="!item.state">下线</button>
+				</div>
+			</div>
+
+		<!-- </div> -->
+		<div class="no_content_show jianzhi_item" ng-if="no_content">
+			<p>没有发布任何沙龙信息</p>
+		</div>
+		<ion-infinite-scroll
+		    on-infinite="addItems()"
+		    ng-if="scrollState"
+		    immediate-check="false"
+		  	>
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>
+
+<script id="detail.html" type="text/ng-template">
+	<ion-modal-view>
+		<div class="bar bar-header bar-positive">
+	      <h1 class="title">评论</h1>
+	      <button class="button button-clear button-primary" ng-click="quit()">退出</button>
+	</div>
+		<ion-content class="has-header">
+			<div class="record_content">
+				<div class="item_header">
+					<div class="item_title">
+						<label >
+							<span class="myitem">{{current_item.topic}}</span>
+							<label class="detail">
+								<i class="icon ion-ios-body detail_display"></i>
+								<span >共{{current_item_record.number}}条评论</span>
+							</label>
+						</label>
+					</div>
+					<label >
+						<i class="icon ion-clock"></i>
+						<label class="font-light">{{current_item.time}}</label>
+						<i class="icon ion-ios-paperplane jianzhi_location"></i>
+						<label class="font-light">{{current_item.location}}</label>
+					</label>
+				</div>
+				<div class="item_record_list">
+					<div class="record_item" ng-repeat="item in current_item_record">
+						<div class="row">
+							<p>{{item.cardnum}}:   {{item.comment_time}}</p>
+						</div>
+						<div class="comment">
+							<p>{{item.content}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="empty_message" ng-if="current_item_record.is_empty">
+					没有评论信息哦
+				</div>
+			</div>
+		</ion-content>
+	</ion-modal-view>
+</script>
